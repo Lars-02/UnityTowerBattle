@@ -850,7 +850,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e5d6289cf8b353488e7f514203b4309, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthbar: {fileID: 4731764560119660547, guid: 925bf5ab39ea0f74b9c61c2954115966,
+    type: 3}
+  maxHealth: 1000
   health: 1000
+  armor: 40
 --- !u!1 &837938808
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,7 +1158,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 6809591343245752410, guid: 589e597d4b781bf47834f65e5d978ae9, type: 3}
-  shopController: {fileID: 0}
 --- !u!61 &1090769269
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1385,7 +1388,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e5d6289cf8b353488e7f514203b4309, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthbar: {fileID: 4731764560119660547, guid: 7efb4f7abc92d704fb3f0e7204cd165d,
+    type: 3}
+  maxHealth: 1000
   health: 1000
+  armor: 40
 --- !u!1 &1370163385
 GameObject:
   m_ObjectHideFlags: 0

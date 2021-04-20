@@ -6,13 +6,13 @@ public class UnitController : MonoBehaviour
 {
     public GameObject healthbar;
     private Animator _animator;
-    private HealtbarController healthbarController;
+    private HealthbarController healthbarController;
 
     private bool isWalking = true;
     private bool isAttackingBase = false;
     public int cost = 100;
     public int loot = 80;
-    public int healthMax = 100;
+    public int maxHealth = 100;
     public int health = 100;
     public int damage = 10;
     public int piercing = 10;
@@ -22,9 +22,9 @@ public class UnitController : MonoBehaviour
 
     void Start()
     {
-        if (healthMax < health)
-            health = healthMax;
-        healthbarController = Instantiate(healthbar, this.transform).GetComponentInChildren<HealtbarController>();
+        if (maxHealth < health)
+            health = maxHealth;
+        healthbarController = Instantiate(healthbar, this.transform).GetComponentInChildren<HealthbarController>();
         _animator = GetComponent<Animator>();
         _animator.SetTrigger("doMove");
     }
@@ -54,8 +54,8 @@ public class UnitController : MonoBehaviour
 
     public void ReceiveDamage(UnitController attacker)
     {
-        health -= Math.Max(damage - (int) (Math.Max(Math.Min((armor - attacker.piercing) / 100, 1), 0) * damage), 10);
-        healthbarController.SetHealth((float)health / healthMax);
+        health -= Math.Max(attacker.damage - (int) (Math.Max(Math.Min((armor - attacker.piercing) / 100, 1), 0) * attacker.damage), 10);
+        healthbarController.SetHealth((float)health / maxHealth);
         if (health <= 0)
             StartCoroutine(Die());
     }
