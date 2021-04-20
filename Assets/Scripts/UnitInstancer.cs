@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class UnitInstancer : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class UnitInstancer : MonoBehaviour
     void Start()
     {
         shopController = GetComponentInParent<ShopController>();
+        GetComponentInChildren<Text>().text = unit.GetComponent<UnitController>().cost.ToString();
     }
 
     public void OnMouseDown()
