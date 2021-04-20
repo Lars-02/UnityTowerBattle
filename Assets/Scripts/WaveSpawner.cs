@@ -9,7 +9,7 @@ public class WaveSpawner : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("SpawnWave", 2.0f, 8f);
+        InvokeRepeating("SpawnWave", 2f, 8f);
     }
 
     void SpawnWave()

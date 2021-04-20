@@ -10,11 +10,16 @@ public class GameHandler : MonoBehaviour
     {
         Debug.Log("GameHandler.Start");
         goldText = GetComponentInChildren<Text>();
-        Debug.Log(goldText);
+        InvokeRepeating("GenerateGold", 2.0f, 1f);
     }
 
     void Update()
     {
         goldText.text = gold.ToString();
+    }
+
+    private void GenerateGold()
+    {
+        gold += 1;
     }
 }

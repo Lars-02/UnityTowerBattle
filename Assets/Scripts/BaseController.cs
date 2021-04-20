@@ -5,8 +5,8 @@ using UnityEngine;
 public class BaseController : MonoBehaviour
 {
     public GameObject healthbar;
-    public int maxHealth = 1000;
-    public int health = 1000;
+    public int maxHealth = 2000;
+    public int health = 2000;
     public int armor = 40;
     private HealthbarController healthbarController;
 
@@ -19,6 +19,7 @@ public class BaseController : MonoBehaviour
             health = maxHealth;
         _animator = GetComponent<Animator>();
         healthbarController = Instantiate(healthbar, this.transform).GetComponentInChildren<HealthbarController>();
+        InvokeRepeating("HealBase", 2f, 1f);
     }
 
     public void OnTriggerEnter2D(Collider2D otherObject)
@@ -27,6 +28,19 @@ public class BaseController : MonoBehaviour
         if (unit.IsOwnBase(this.tag) || _isAttacking)
             return;
         StartCoroutine(Fight(unit));
+    }
+
+    private void HealBase()
+    {
+        health += 1;
+        if (health < 1000)
+            health += 1;
+        if (health < 500)
+            health += 1;
+        if (health < 200)
+            health += 2;
+        if (health > maxHealth)
+            health = maxHealth;
     }
 
     private IEnumerator Fight(UnitController attacker)
