@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb678295439cd0140b15c05261bba7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healtbar: {fileID: 4731764560119660547, guid: 925bf5ab39ea0f74b9c61c2954115966,
+  healthbar: {fileID: 4731764560119660547, guid: 925bf5ab39ea0f74b9c61c2954115966,
     type: 3}
   cost: 100
   loot: 80
