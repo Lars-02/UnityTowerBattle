@@ -29,7 +29,6 @@ public class AttackController : MonoBehaviour
 
     private IEnumerator Fight(UnitController enemy)
     {
-        Debug.Log("Atttaacckkkkk");
         _isAttacking = true;
         while (enemy != null && _unit.health > 0 && enemy.health > 0)
         {
