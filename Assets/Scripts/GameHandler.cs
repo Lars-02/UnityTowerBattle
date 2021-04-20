@@ -10,7 +10,7 @@ public class GameHandler : MonoBehaviour
     {
         Debug.Log("GameHandler.Start");
         goldText = GetComponentInChildren<Text>();
-        InvokeRepeating("GenerateGold", 2.0f, 1f);
+        InvokeRepeating("GenerateGold", 2f, 2f);
     }
 
     void Update()
@@ -21,5 +21,15 @@ public class GameHandler : MonoBehaviour
     private void GenerateGold()
     {
         gold += 1;
+    }
+
+    public void EndGame(string tag)
+    {
+        Debug.Log("Game has ended");
+
+        if (tag == "PlayerBase")
+        {
+
+        }
     }
 }

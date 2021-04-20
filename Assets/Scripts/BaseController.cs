@@ -62,11 +62,6 @@ public class BaseController : MonoBehaviour
         health -= Math.Max(attacker.damage - (int)(Math.Max(Math.Min((armor - attacker.piercing) / 100, 1), 0) * attacker.damage), 10);
         healthbarController.SetHealth((float)health / maxHealth);
         if (health <= 0)
-            EndGame();
-    }
-
-    private void EndGame()
-    {
-        Debug.LogError("Game has ended");
+            GetComponentInParent<GameHandler>().EndGame(this.tag);
     }
 }
