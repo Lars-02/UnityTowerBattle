@@ -28,4 +28,9 @@ public class SpawnController : MonoBehaviour
         Instantiate(unit, this.transform);
         return true;
     }
+
+    public void GetLoot(int loot)
+    {
+        GetComponentInParent<GameHandler>().gold += loot;
+    }
 }

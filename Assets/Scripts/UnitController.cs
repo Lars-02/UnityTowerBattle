@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class UnitController : MonoBehaviour
@@ -7,10 +8,12 @@ public class UnitController : MonoBehaviour
 
     private bool isWalking = true;
     private bool isAttackingBase = false;
+    public int cost = 100;
+    public int loot = 80;
     public int health = 100;
-    public int armor = 10;
     public int damage = 10;
     public int piercing = 10;
+    public int armor = 10;
     public float speed = 1f;
 
 
@@ -45,7 +48,7 @@ public class UnitController : MonoBehaviour
 
     public void ReceiveDamage(UnitController attacker)
     {
-        health -= attacker.damage;
+        health -= Math.Max(damage - (int) (Math.Max(Math.Min((armor - attacker.piercing) / 100, 1), 0) * damage), 10);
         if (health <= 0)
             StartCoroutine(Die());
     }
@@ -57,6 +60,7 @@ public class UnitController : MonoBehaviour
 
     private IEnumerator Die()
     {
+        GetComponentInParent<SpawnController>().GetLoot(this.loot);
         _animator.SetTrigger("doDie");
         yield return new WaitForSeconds(2);
         Destroy(this.gameObject);

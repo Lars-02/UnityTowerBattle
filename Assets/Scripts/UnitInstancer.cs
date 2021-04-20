@@ -4,7 +4,6 @@ public class UnitInstancer : MonoBehaviour
 {
     public GameObject unit;
     public GameObject spawner;
-    public int cost;
 
     private int InQueue;
 
