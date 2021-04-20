@@ -58,7 +58,7 @@ MonoBehaviour:
   damage: 40
   piercing: 10
   armor: 10
-  speed: 0.8
+  speed: 1.2
 --- !u!212 &6809591343245752411
 SpriteRenderer:
   m_ObjectHideFlags: 0
