@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AttackController : MonoBehaviour
@@ -15,11 +14,6 @@ public class AttackController : MonoBehaviour
         _unit = GetComponent<UnitController>();
     }
 
-    void Update()
-    {
-        
-    }
-
     public void OnTriggerEnter2D(Collider2D otherObject)
     {
         if (this.CompareTag(otherObject.tag) || _isAttacking)
@@ -32,10 +26,17 @@ public class AttackController : MonoBehaviour
         _isAttacking = true;
         while (enemy != null && _unit.health > 0 && enemy.health > 0)
         {
-            enemy.ReceiveDamage(_unit.damage);
-            _unit.ReceiveDamage(enemy.damage);
-            enemy.AttackAnimation();
-            _unit.AttackAnimation();
+            if (!enemy.IsAttackingBase())
+            {
+                enemy.AttackAnimation();
+                _unit.ReceiveDamage(enemy);
+            }
+            if (!_unit.IsAttackingBase())
+            {
+                _unit.AttackAnimation();
+                enemy.ReceiveDamage(_unit);
+            }
+
             yield return new WaitForSeconds(2);
         }
         _isAttacking = false;

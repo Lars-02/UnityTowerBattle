@@ -220,6 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawner: {fileID: 186805727}
   archer: {fileID: 6809591343245752410, guid: 1ea7841bccb569c4da0068d79bd0545d, type: 3}
+  spawning: 1
 --- !u!114 &186805730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,7 +233,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d24107d0babb3342963b80efdd0cf5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filled: 0
 --- !u!61 &186805731
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1310,7 +1310,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d24107d0babb3342963b80efdd0cf5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filled: 0
 --- !u!1 &1409802872
 GameObject:
   m_ObjectHideFlags: 0

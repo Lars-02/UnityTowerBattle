@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
 public class UnitController : MonoBehaviour
@@ -12,6 +10,7 @@ public class UnitController : MonoBehaviour
     public int health = 100;
     public int armor = 10;
     public int damage = 10;
+    public int piercing = 10;
     public float speed = 1f;
 
 
@@ -44,9 +43,9 @@ public class UnitController : MonoBehaviour
         _animator.SetTrigger("doMove");
     }
 
-    public void ReceiveDamage(int damage)
+    public void ReceiveDamage(UnitController attacker)
     {
-        health -= damage;
+        health -= attacker.damage;
         if (health <= 0)
             StartCoroutine(Die());
     }
@@ -63,11 +62,16 @@ public class UnitController : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    private bool IsOwnBase(string colliderTag)
+    public bool IsOwnBase(string colliderTag)
     {
         if (colliderTag == "PlayerBase" && this.CompareTag("Player") || colliderTag == "EnemyBase" && this.CompareTag("Enemy"))
             return true;
         return false;
+    }
+
+    public void AttackingBase(bool attacking)
+    {
+        isAttackingBase = attacking;
     }
 
     public bool IsAttackingBase()
