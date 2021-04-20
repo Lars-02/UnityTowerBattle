@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UnitController : MonoBehaviour
 {
+    public GameObject healtbar;
     private Animator _animator;
 
     private bool isWalking = true;
@@ -19,12 +20,14 @@ public class UnitController : MonoBehaviour
 
     void Start()
     {
+        Instantiate(healtbar, this.transform);
         _animator = GetComponent<Animator>();
         _animator.SetTrigger("doMove");
     }
 
     void Update()
     {
+        healtbar.GetComponentInChildren<HealtbarController>().SetHealth(health / 100);
         if (isWalking)
             transform.Translate(speed / 100, 0, 0);
     }

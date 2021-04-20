@@ -48,9 +48,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb678295439cd0140b15c05261bba7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healtbar: {fileID: 4731764560119660547, guid: 7efb4f7abc92d704fb3f0e7204cd165d,
+    type: 3}
+  cost: 100
+  loot: 80
   health: 100
-  armor: 10
   damage: 40
+  piercing: 10
+  armor: 10
   speed: -1.2
 --- !u!212 &6809591343245752411
 SpriteRenderer:
