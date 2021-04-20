@@ -3,9 +3,11 @@ using UnityEngine;
 
 public class BaseController : MonoBehaviour
 {
+    public GameObject healthbar;
+    public int health = 1000;
+
     private Animator _animator;
     private bool _isAttacking;
-    public int health = 1000;
 
     void Start()
     {

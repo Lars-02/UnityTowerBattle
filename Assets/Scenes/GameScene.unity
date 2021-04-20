@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9a3e93b1bf961844a55fa39950246c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gold: 100
+  gold: 500
 --- !u!224 &95073344
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1154,7 +1154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 6809591343245752410, guid: 589e597d4b781bf47834f65e5d978ae9, type: 3}
-  spawner: {fileID: 1370163385}
+  shopController: {fileID: 0}
 --- !u!61 &1090769269
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1709,6 +1709,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1902912613}
+  - component: {fileID: 1902912614}
   m_Layer: 0
   m_Name: Shop
   m_TagString: Untagged
@@ -1731,3 +1732,16 @@ Transform:
   m_Father: {fileID: 95073344}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1902912614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902912612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60b12e7501bee7c4fbcd5fcead515ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner: {fileID: 1370163385}

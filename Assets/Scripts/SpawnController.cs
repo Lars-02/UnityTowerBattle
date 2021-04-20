@@ -3,6 +3,7 @@
 public class SpawnController : MonoBehaviour
 {
     private bool filled;
+    private GameHandler gameHandler;
 
     public void OnTriggerEnter2D(Collider2D otherObject)
     {
@@ -31,6 +32,8 @@ public class SpawnController : MonoBehaviour
 
     public void GetLoot(int loot)
     {
-        GetComponentInParent<GameHandler>().gold += loot;
+        if (gameHandler == null)
+            gameHandler = GetComponentInParent<GameHandler>();
+        gameHandler.gold += loot;
     }
 }
