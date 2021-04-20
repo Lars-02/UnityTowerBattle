@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SpawnController : MonoBehaviour
 {
-    public bool filled;
+    private bool filled;
 
     public void OnTriggerEnter2D(Collider2D otherObject)
     {
@@ -13,7 +11,7 @@ public class SpawnController : MonoBehaviour
             filled = true;
         }
     }
-    
+
     public void OnTriggerExit2D(Collider2D otherObject)
     {
         if (!this.CompareTag(otherObject.tag))

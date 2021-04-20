@@ -21,7 +21,7 @@ public class UnitInstancer : MonoBehaviour
     private void CallSpawner()
     {
         SpawnController spawnerController = spawner.GetComponent<SpawnController>();
-        if (InQueue <= 0 || spawnerController.filled)
+        if (InQueue <= 0)
             return;
         if (spawnerController.SpawnUnit(unit))
             InQueue--;

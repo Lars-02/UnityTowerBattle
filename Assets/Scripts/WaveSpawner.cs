@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
     public GameObject spawner;
-
     public GameObject archer;
+
+    public bool spawning;
 
     void Start()
     {
@@ -15,9 +14,9 @@ public class WaveSpawner : MonoBehaviour
 
     void SpawnWave()
     {
-        SpawnController spawnerController = spawner.GetComponent<SpawnController>();
-        if (spawnerController.filled)
+        if (!spawning)
             return;
+        SpawnController spawnerController = spawner.GetComponent<SpawnController>();
         spawnerController.SpawnUnit(archer);
     }
 }
