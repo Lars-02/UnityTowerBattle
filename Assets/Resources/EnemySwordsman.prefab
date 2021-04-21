@@ -54,7 +54,7 @@ MonoBehaviour:
   loot: 120
   maxHealth: 200
   health: 200
-  damage: 60
+  damage: 40
   piercing: 60
   armor: 20
   speed: -0.8

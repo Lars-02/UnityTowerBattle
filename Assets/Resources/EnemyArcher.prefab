@@ -52,8 +52,8 @@ MonoBehaviour:
     type: 3}
   cost: 0
   loot: 60
-  maxHealth: 180
-  health: 180
+  maxHealth: 140
+  health: 140
   damage: 60
   piercing: 10
   armor: 0
