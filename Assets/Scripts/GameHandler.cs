@@ -4,6 +4,8 @@ using UnityEngine.UI;
 public class GameHandler : MonoBehaviour
 {
     public int gold;
+    public GameObject victory;
+    public GameObject defeat;
     private Text goldText;
 
     void Start()
@@ -26,10 +28,11 @@ public class GameHandler : MonoBehaviour
     public void EndGame(string tag)
     {
         Debug.Log("Game has ended");
+        CancelInvoke("GenerateGold");
 
         if (tag == "PlayerBase")
-        {
-
-        }
+            defeat.SetActive(true);
+        else
+            victory.SetActive(true);
     }
 }
