@@ -29,6 +29,7 @@ public class GameHandler : MonoBehaviour
     {
         Debug.Log("Game has ended");
         CancelInvoke("GenerateGold");
+        GetComponentInChildren<ShopController>().CloseShop();
 
         if (tag == "PlayerBase")
             defeat.SetActive(true);

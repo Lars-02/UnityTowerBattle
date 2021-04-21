@@ -8,6 +8,7 @@ public class ShopController : MonoBehaviour
     private GameHandler gameHandler;
     private Queue<GameObject> unitQueue = new Queue<GameObject>();
     private SpawnController spawnerController;
+    private bool closed;
 
     void Start()
     {
@@ -18,6 +19,8 @@ public class ShopController : MonoBehaviour
 
     public void AddUnitToQueue(GameObject unit)
     {
+        if (closed)
+            return;
         UnitController unitController = unit.GetComponent<UnitController>();
         if (unitController.cost > gameHandler.gold)
             return;
@@ -31,5 +34,11 @@ public class ShopController : MonoBehaviour
             return;
         if (spawnerController.SpawnUnit(unitQueue.Peek()))
             unitQueue.Dequeue();
+    }
+
+    public void CloseShop()
+    {
+        CancelInvoke("CallSpawner");
+        closed = true;
     }
 }
