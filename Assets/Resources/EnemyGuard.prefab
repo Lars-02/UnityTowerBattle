@@ -52,12 +52,11 @@ MonoBehaviour:
     type: 3}
   cost: 0
   loot: 100
-  maxHealth: 200
   health: 200
   damage: 30
   piercing: 0
-  armor: 60
-  speed: -0.4
+  armor: 80
+  speed: -0.6
 --- !u!212 &6809591343245752411
 SpriteRenderer:
   m_ObjectHideFlags: 0

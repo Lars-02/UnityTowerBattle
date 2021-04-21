@@ -1249,8 +1249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthbar: {fileID: 4731764560119660547, guid: 28c8ad3696d22e247b883f5df947e0a7,
     type: 3}
-  maxHealth: 2000
-  health: 2000
+  health: 1000
   armor: 40
 --- !u!1 &716036478
 GameObject:
@@ -2328,8 +2327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthbar: {fileID: 4731764560119660547, guid: 6cda4197ed47b8245a90e9aefe2b3040,
     type: 3}
-  maxHealth: 2000
-  health: 2000
+  health: 1000
   armor: 40
 --- !u!1 &1335650045
 GameObject:

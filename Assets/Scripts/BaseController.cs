@@ -5,19 +5,17 @@ using UnityEngine;
 public class BaseController : MonoBehaviour
 {
     public GameObject healthbar;
-    public int maxHealth = 2000;
     public int health = 2000;
     public int armor = 40;
-    private HealthbarController healthbarController;
 
-    private Animator _animator;
-    private bool _isAttacking;
+    private HealthbarController healthbarController;
+    private int maxHealth;
+    private bool isAttacking;
+    private bool invulnerable;
 
     void Start()
     {
-        if (maxHealth < health)
-            health = maxHealth;
-        _animator = GetComponent<Animator>();
+        maxHealth = health;
         healthbarController = Instantiate(healthbar, this.transform).GetComponentInChildren<HealthbarController>();
         InvokeRepeating("HealBase", 2f, 1f);
     }
@@ -25,7 +23,7 @@ public class BaseController : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D otherObject)
     {
         UnitController unit = otherObject.GetComponent<UnitController>();
-        if (unit.IsOwnBase(this.tag) || _isAttacking)
+        if (unit.IsOwnBase(this.tag) || isAttacking)
             return;
         StartCoroutine(Fight(unit));
     }
@@ -45,15 +43,15 @@ public class BaseController : MonoBehaviour
 
     private IEnumerator Fight(UnitController attacker)
     {
-        _isAttacking = true;
+        isAttacking = true;
         attacker.AttackingBase(true);
-        while (attacker != null && health > 0 && attacker.health > 0)
+        while (attacker != null && health > 0 && attacker.health > 0 && !invulnerable)
         {
             attacker.AttackAnimation();
             ReceiveDamage(attacker);
             yield return new WaitForSeconds(2);
         }
-        _isAttacking = false;
+        isAttacking = false;
         attacker.AttackingBase(false);
     }
 
@@ -63,5 +61,11 @@ public class BaseController : MonoBehaviour
         healthbarController.SetHealth((float)health / maxHealth);
         if (health <= 0)
             GetComponentInParent<GameHandler>().EndGame(this.tag);
+    }
+
+    public void MakeInvulnerable()
+    {
+        CancelInvoke("HealBase");
+        invulnerable = true;
     }
 }

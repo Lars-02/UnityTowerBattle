@@ -10,7 +10,7 @@ public class UnitController : MonoBehaviour
 
     private bool isWalking = true;
     private bool isAttackingBase = false;
-    private int maxHealth = 100;
+    private int maxHealth;
     public int cost = 100;
     public int loot = 80;
     public int health = 100;

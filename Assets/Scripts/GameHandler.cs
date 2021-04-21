@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class GameHandler : MonoBehaviour
@@ -22,6 +23,12 @@ public class GameHandler : MonoBehaviour
     void Update()
     {
         goldText.text = gold.ToString();
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            gold += 100;
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+            EndGame("EnemyBase");
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+            EndGame("PlayerBase");
     }
 
     private void GenerateGold()
@@ -34,6 +41,8 @@ public class GameHandler : MonoBehaviour
         Debug.Log("Game has ended");
         CancelInvoke("GenerateGold");
         GetComponentInChildren<ShopController>().CloseShop();
+        GetComponentsInChildren<BaseController>()[0].MakeInvulnerable();
+        GetComponentsInChildren<BaseController>()[1].MakeInvulnerable();
 
         if (tag == "PlayerBase")
             defeat.SetActive(true);
