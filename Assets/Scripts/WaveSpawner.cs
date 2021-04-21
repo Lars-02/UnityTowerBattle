@@ -4,6 +4,9 @@ public class WaveSpawner : MonoBehaviour
 {
     public GameObject spawner;
     public GameObject archer;
+    public GameObject swordsman;
+    public GameObject guard;
+    public GameObject wizard;
 
     public bool spawning;
 
