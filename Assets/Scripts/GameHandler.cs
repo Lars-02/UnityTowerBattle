@@ -13,6 +13,10 @@ public class GameHandler : MonoBehaviour
         Debug.Log("GameHandler.Start");
         goldText = GetComponentInChildren<Text>();
         InvokeRepeating("GenerateGold", 2f, 2f);
+        InvokeRepeating("GenerateGold", 32f, 2f);
+        InvokeRepeating("GenerateGold", 62f, 2f);
+        InvokeRepeating("GenerateGold", 122f, 2f);
+        InvokeRepeating("GenerateGold", 242f, 2f);
     }
 
     void Update()
