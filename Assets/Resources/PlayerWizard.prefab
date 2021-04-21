@@ -51,12 +51,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthbar: {fileID: 4731764560119660547, guid: 925bf5ab39ea0f74b9c61c2954115966,
     type: 3}
-  cost: 500
+  cost: 250
   loot: 0
-  maxHealth: 80
-  health: 80
+  maxHealth: 120
+  health: 120
   damage: 160
-  piercing: 0
+  piercing: 40
   armor: 0
   speed: 0.6
 --- !u!212 &6809591343245752411
