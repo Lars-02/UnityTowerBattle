@@ -10,9 +10,9 @@ public class UnitController : MonoBehaviour
 
     private bool isWalking = true;
     private bool isAttackingBase = false;
+    private int maxHealth = 100;
     public int cost = 100;
     public int loot = 80;
-    public int maxHealth = 100;
     public int health = 100;
     public int damage = 10;
     public int piercing = 10;
@@ -22,8 +22,7 @@ public class UnitController : MonoBehaviour
 
     void Start()
     {
-        if (maxHealth < health)
-            health = maxHealth;
+        maxHealth = health;
         healthbarController = Instantiate(healthbar, this.transform).GetComponentInChildren<HealthbarController>();
         _animator = GetComponent<Animator>();
         _animator.SetTrigger("doMove");
