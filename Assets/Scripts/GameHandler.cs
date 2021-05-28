@@ -8,6 +8,7 @@ public class GameHandler : MonoBehaviour
     public GameObject victory;
     public GameObject defeat;
     private Text goldText;
+    private bool ended;
 
     void Start()
     {
@@ -25,9 +26,9 @@ public class GameHandler : MonoBehaviour
         goldText.text = gold.ToString();
         if (Input.GetKeyDown(KeyCode.Alpha1))
             gold += 100;
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2) && !ended)
             EndGame("EnemyBase");
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.Alpha3) && !ended)
             EndGame("PlayerBase");
     }
 
@@ -38,6 +39,8 @@ public class GameHandler : MonoBehaviour
 
     public void EndGame(string tag)
     {
+        if (ended)
+            return;
         Debug.Log("Game has ended");
         CancelInvoke("GenerateGold");
         GetComponentInChildren<ShopController>().CloseShop();
@@ -48,5 +51,7 @@ public class GameHandler : MonoBehaviour
             defeat.SetActive(true);
         else
             victory.SetActive(true);
+
+        ended = true;
     }
 }
