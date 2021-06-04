@@ -366,6 +366,11 @@ MonoBehaviour:
     type: 3}
   guard: {fileID: 6809591343245752410, guid: 36b18bac457674443acbb7299fa00406, type: 3}
   wizard: {fileID: 6809591343245752410, guid: cb1bb3c3fe84a6b4fb88006f4030e12f, type: 3}
+  units:
+  - {fileID: 6809591343245752410, guid: 1ea7841bccb569c4da0068d79bd0545d, type: 3}
+  - {fileID: 6809591343245752410, guid: 36b18bac457674443acbb7299fa00406, type: 3}
+  - {fileID: 6809591343245752410, guid: fb5a195f021531448b5c087c55c84f3a, type: 3}
+  - {fileID: 6809591343245752410, guid: cb1bb3c3fe84a6b4fb88006f4030e12f, type: 3}
   spawning: 1
 --- !u!114 &186805730
 MonoBehaviour:
